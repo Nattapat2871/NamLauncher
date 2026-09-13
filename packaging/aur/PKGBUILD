@@ -1,0 +1,41 @@
+# Maintainer: Nattapat2871
+# Author/creator: nattapat2871 (https://nattapat2871.me)
+pkgname=namlauncher-bin
+pkgver=1.2.3
+pkgrel=1
+pkgdesc="Minecraft Java Edition launcher with isolated instances and managed content"
+arch=('x86_64')
+url="https://namlauncher.nattapat2871.me"
+license=('custom')
+depends=('fuse3' 'gtk3' 'nss' 'libxss' 'libnotify' 'xdg-utils')
+optdepends=('discord: Discord Rich Presence support')
+provides=('namlauncher')
+conflicts=('namlauncher')
+options=('!strip')
+_upstream_ver=1.2.3
+source=(
+  "${pkgname}-${pkgver}.AppImage::https://namlauncher.nattapat2871.me/download/NamLauncher-1.2.3-Linux-x64.AppImage"
+  "namlauncher.png::https://namlauncher.nattapat2871.me/assets/namlauncher-icon.png"
+)
+sha256sums=(
+  '3f50ae447de35148803b297a65c289c3dc1e3d4e9a86693d449a9ae1fe033a73'
+  'cd7f95ee7a142799f93b3cc32d9e0795122bfc631dfd4f58f0e11e4269a1ccf3'
+)
+
+package() {
+  install -Dm755 "${srcdir}/${pkgname}-${pkgver}.AppImage" "${pkgdir}/opt/namlauncher/NamLauncher.AppImage"
+  install -Dm644 "${srcdir}/namlauncher.png" "${pkgdir}/usr/share/icons/hicolor/512x512/apps/namlauncher.png"
+  install -d "${pkgdir}/usr/bin" "${pkgdir}/usr/share/applications"
+  ln -s /opt/namlauncher/NamLauncher.AppImage "${pkgdir}/usr/bin/namlauncher"
+  cat > "${pkgdir}/usr/share/applications/namlauncher.desktop" <<'EOF'
+[Desktop Entry]
+Name=NamLauncher
+Comment=Minecraft Java Edition launcher
+Exec=namlauncher %U
+Icon=namlauncher
+Terminal=false
+Type=Application
+Categories=Game;
+StartupWMClass=namlauncher
+EOF
+}

@@ -1,0 +1,45 @@
+diff --git a/node_modules/discord-rpc/src/transports/ipc.js b/node_modules/discord-rpc/src/transports/ipc.js
+index f050a01..df1b15d 100644
+--- a/node_modules/discord-rpc/src/transports/ipc.js
++++ b/node_modules/discord-rpc/src/transports/ipc.js
+@@ -13,21 +13,32 @@ const OPCodes = {
+   PONG: 4,
+ };
+ 
+-function getIPCPath(id) {
++function getIPCPrefixes() {
++  if (process.platform === 'win32') return [''];
++
++  const { env: { XDG_RUNTIME_DIR, TMPDIR, TMP, TEMP } } = process;
++  const preferred = process.platform === 'darwin'
++    ? [TMPDIR, TMP, TEMP, '/tmp']
++    : [XDG_RUNTIME_DIR, TMPDIR, TMP, TEMP, '/tmp'];
++  return [...new Set(preferred.filter(Boolean).map(prefix => prefix.replace(/\/$/, '')))];
++}
++
++function getIPCPath(id, prefix) {
+   if (process.platform === 'win32') {
+     return `\\\\?\\pipe\\discord-ipc-${id}`;
+   }
+-  const { env: { XDG_RUNTIME_DIR, TMPDIR, TMP, TEMP } } = process;
+-  const prefix = XDG_RUNTIME_DIR || TMPDIR || TMP || TEMP || '/tmp';
+-  return `${prefix.replace(/\/$/, '')}/discord-ipc-${id}`;
++  return `${prefix}/discord-ipc-${id}`;
+ }
+ 
+-function getIPC(id = 0) {
++function getIPC(id = 0, prefixIndex = 0) {
+   return new Promise((resolve, reject) => {
+-    const path = getIPCPath(id);
++    const prefixes = getIPCPrefixes();
++    const path = getIPCPath(id, prefixes[prefixIndex] || '/tmp');
+     const onerror = () => {
+-      if (id < 10) {
+-        resolve(getIPC(id + 1));
++      if (prefixIndex + 1 < prefixes.length) {
++        resolve(getIPC(id, prefixIndex + 1));
++      } else if (id < 10) {
++        resolve(getIPC(id + 1, 0));
+       } else {
+         reject(new Error('Could not connect'));
+       }

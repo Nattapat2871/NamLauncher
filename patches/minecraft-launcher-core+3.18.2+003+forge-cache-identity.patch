@@ -1,0 +1,22 @@
+diff --git a/node_modules/minecraft-launcher-core/components/handler.js b/node_modules/minecraft-launcher-core/components/handler.js
+--- a/node_modules/minecraft-launcher-core/components/handler.js
++++ b/node_modules/minecraft-launcher-core/components/handler.js
+@@ -409,5 +409,8 @@
+   async getForgedWrapped () {
+     let json = null
+     let installerJson = null
++    // Author/creator: nattapat2871 (https://nattapat2871.me)
++    // The same Minecraft instance may select a different Forge installer later.
++    const installerSha256 = require('crypto').createHash('sha256').update(await fs.promises.readFile(this.options.forge)).digest('hex')
+     const versionPath = path.join(this.options.root, 'forge', `${this.version.id}`, 'version.json')
+     // Since we're building a proper "custom" JSON that will work nativly with MCLC, the version JSON will not
+@@ -417,3 +420,3 @@
+         json = JSON.parse(fs.readFileSync(versionPath))
+-        if (!json.forgeWrapperVersion || !(json.forgeWrapperVersion === this.options.overrides.fw.version)) {
++        if (json.namlauncherInstallerSha256 !== installerSha256 || !json.forgeWrapperVersion || !(json.forgeWrapperVersion === this.options.overrides.fw.version)) {
+           this.client.emit('debug', '[MCLC]: Old ForgeWrapper has generated this version JSON, re-generating')
+@@ -540,3 +543,4 @@
+     json.forgeWrapperVersion = this.options.overrides.fw.version
++    json.namlauncherInstallerSha256 = installerSha256
+ 
+     // Saving file for next run!

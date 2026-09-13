@@ -1,0 +1,16 @@
+node_modules/
+.serena/
+.venv*/
+dist/
+dist-electron/
+release/
+.qa/
+build/authlib-injector-*.jar
+build/authlib-injector-LICENSE.txt
+*.log
+
+**/.gradle/
+
+.env
+.env.*
+!.env.example

@@ -1,0 +1,92 @@
+# Author/creator: nattapat2871 (https://nattapat2871.me)
+name: Build unsigned macOS desktop installer
+
+on:
+  workflow_dispatch:
+    inputs:
+      upload_artifact:
+        description: Upload the unsigned DMG and checksum for one day
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  macos:
+    name: macOS universal DMG
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        with:
+          distribution: temurin
+          java-version: "17"
+      - name: Capture Java 17 toolchain
+        shell: bash
+        run: printf 'NAMLAUNCHER_JAVA17_HOME=%s\n' "$JAVA_HOME" >> "$GITHUB_ENV"
+      - uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Capture Java 21 toolchain
+        shell: bash
+        run: printf 'NAMLAUNCHER_JAVA21_HOME=%s\n' "$JAVA_HOME" >> "$GITHUB_ENV"
+      - uses: actions/setup-java@dded0888837ed1f317902acf8a20df0ad188d165 # v5.0.0
+        with:
+          distribution: temurin
+          java-version: "25"
+          cache: gradle
+          cache-dependency-path: game-bridge/gradle/wrapper/gradle-wrapper.properties
+      - name: Install checksum-verified Gradle 8.8 toolchain
+        shell: bash
+        run: |
+          set -euo pipefail
+          tool_root="${RUNNER_TEMP:?}/namlauncher-gradle-8.8"
+          archive="$tool_root/gradle-8.8-bin.zip"
+          mkdir -p "$tool_root"
+          curl --fail --silent --show-error --location \
+            https://services.gradle.org/distributions/gradle-8.8-bin.zip \
+            --output "$archive"
+          printf '%s  %s\n' \
+            'a4b4158601f8636cdeeab09bd76afb640030bb5b144aafe261a5e8af027dc612' \
+            "$archive" | shasum -a 256 -c -
+          ditto -x -k "$archive" "$tool_root"
+          printf 'NAMLAUNCHER_GRADLE8_HOME=%s\n' "$tool_root/gradle-8.8" >> "$GITHUB_ENV"
+      - run: npm ci
+      - run: npm test
+      - run: npm run dist:mac
+      - name: Verify universal application architectures and checksum
+        shell: bash
+        run: |
+          set -euo pipefail
+          app_path="$(find release -type d -name 'NamLauncher.app' -print -quit)"
+          [[ -n "$app_path" ]]
+          architectures="$(lipo -archs "$app_path/Contents/MacOS/NamLauncher")"
+          for required_architecture in arm64 x86_64; do
+            case " $architectures " in
+              *" $required_architecture "*) ;;
+              *) printf 'Missing %s architecture (found: %s)\n' "$required_architecture" "$architectures" >&2; exit 1 ;;
+            esac
+          done
+          checksum_path="$(find release -maxdepth 1 -type f -name 'NamLauncher-*-macOS-universal.dmg.sha256' -print -quit)"
+          [[ -n "$checksum_path" && -s "$checksum_path" ]]
+          (cd release && shasum -a 256 -c "$(basename "$checksum_path")")
+      - name: Upload optional short-lived unsigned DMG
+        if: ${{ inputs.upload_artifact }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: NamLauncher-macOS-universal-unsigned
+          path: |
+            release/NamLauncher-*-macOS-universal.dmg
+            release/NamLauncher-*-macOS-universal.dmg.sha256
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 1

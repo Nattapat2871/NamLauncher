@@ -1,0 +1,267 @@
+{
+  "name": "namlauncher",
+  "productName": "NamLauncher",
+  "desktopName": "namlauncher.desktop",
+  "description": "NamLauncher Minecraft launcher",
+  "version": "1.2.3",
+  "author": "nattapat2871 (https://nattapat2871.me)",
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NamLauncher/NamLauncher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NamLauncher/NamLauncher/issues"
+  },
+  "homepage": "https://namlauncher.nattapat2871.me",
+  "main": "dist-electron/main.js",
+  "build": {
+    "appId": "com.namlauncher.app",
+    "productName": "NamLauncher",
+    "npmRebuild": false,
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://namlauncher.nattapat2871.me/api/releases/updater/"
+      }
+    ],
+    "toolsets": {
+      "appimage": "1.0.3"
+    },
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "build/namlauncher.ico",
+      "NamLauncher-icon.png",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "packaging/update-windows.ps1",
+        "to": "updater/update-windows.ps1"
+      },
+      {
+        "from": "build/namlauncher.ico",
+        "to": "build/namlauncher.ico"
+      },
+      {
+        "from": "NamLauncher-icon.png",
+        "to": "NamLauncher-icon.png"
+      },
+      {
+        "from": "build/authlib-injector-1.2.7.jar",
+        "to": "authlib-injector.jar"
+      },
+      {
+        "from": "build/authlib-injector-LICENSE.txt",
+        "to": "authlib-injector-LICENSE.txt"
+      },
+      {
+        "from": "build/resourcepacks/NamLauncher-Thai-Font.zip",
+        "to": "resourcepacks/NamLauncher-Thai-Font.zip"
+      },
+      {
+        "from": "build/game-bridge",
+        "to": "game-bridge",
+        "filter": [
+          "**/*.jar",
+          "game-bridge-manifest.json"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/namlauncher.ico",
+      "artifactName": "NamLauncher-${version}-Installer.${ext}"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "icon": "packaging/mac/generated/namlauncher.icns",
+      "category": "public.app-category.games",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "identity": null,
+      "entitlements": "packaging/mac/entitlements.mac.plist",
+      "entitlementsInherit": "packaging/mac/entitlements.mac.inherit.plist",
+      "notarize": false,
+      "artifactName": "NamLauncher-${version}-macOS-universal.${ext}"
+    },
+    "dmg": {
+      "title": "NamLauncher ${version}",
+      "format": "ULFO"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "deb",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "rpm",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "flatpak",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "pacman",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "NamLauncher-icon.png",
+      "executableName": "namlauncher",
+      "category": "Game",
+      "maintainer": "Nattapat2871",
+      "vendor": "Nattapat2871",
+      "synopsis": "Minecraft Java Edition launcher",
+      "description": "NamLauncher Minecraft Java Edition launcher with isolated instances, managed Java runtimes, skins, Modrinth, and CurseForge content.",
+      "syncDesktopName": true
+    },
+    "appImage": {
+      "artifactName": "NamLauncher-${version}-Linux-x64.AppImage",
+      "executableArgs": []
+    },
+    "deb": {
+      "artifactName": "NamLauncher-${version}-Linux-x64.deb",
+      "afterInstall": "build/linux-after-install.sh"
+    },
+    "rpm": {
+      "artifactName": "NamLauncher-${version}-Linux-x64.rpm",
+      "afterInstall": "build/linux-after-install.sh"
+    },
+    "flatpak": {
+      "artifactName": "NamLauncher-${version}-Linux-x64.flatpak",
+      "runtime": "org.freedesktop.Platform",
+      "runtimeVersion": "24.08",
+      "sdk": "org.freedesktop.Sdk",
+      "base": "org.electronjs.Electron2.BaseApp",
+      "baseVersion": "24.08",
+      "finishArgs": [
+        "--socket=wayland",
+        "--socket=fallback-x11",
+        "--share=ipc",
+        "--device=dri",
+        "--socket=pulseaudio",
+        "--filesystem=xdg-data/NamLauncher:create",
+        "--filesystem=xdg-cache/NamLauncher:create",
+        "--filesystem=xdg-download:ro",
+        "--filesystem=xdg-run/discord-ipc-0",
+        "--share=network",
+        "--talk-name=org.freedesktop.Notifications"
+      ]
+    },
+    "pacman": {
+      "artifactName": "NamLauncher-${version}-Linux-x64.pkg.tar.zst",
+      "afterInstall": "build/linux-after-install.sh",
+      "compression": "zstd"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "allowElevation": true,
+      "selectPerMachineByDefault": false,
+      "packElevateHelper": true,
+      "installerIcon": "build/namlauncher.ico",
+      "uninstallerIcon": "build/namlauncher.ico",
+      "installerHeaderIcon": "build/namlauncher.ico",
+      "include": "build/installer.nsh",
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "NamLauncher"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "test": "node --no-warnings --test tests/*.test.mjs",
+    "prepare:game-bridge": "node scripts/prepare-game-bridge.mjs --clean-after-stage",
+    "prebuild": "node scripts/prepare-authlib-injector.mjs",
+    "build": "tsc && vite build",
+    "predist:win": "node scripts/assert-release-metadata.mjs && node scripts/assert-error-report-token.mjs && node scripts/assert-no-required-native-addons.mjs",
+    "dist:win": "npm run prepare:game-bridge && npm run build && node scripts/verify-error-report-token-in-build.mjs && electron-builder --win nsis --x64 --publish never && node scripts/ensure-installer-icon.mjs && node scripts/stage-release-artifacts.mjs win",
+    "predist:linux": "node scripts/assert-release-metadata.mjs && node scripts/assert-error-report-token.mjs && node scripts/assert-no-required-native-addons.mjs",
+    "dist:linux": "npm run prepare:game-bridge && npm run build && node scripts/verify-error-report-token-in-build.mjs && electron-builder --linux AppImage deb rpm flatpak pacman --x64 --publish never && node scripts/verify-linux-package-sandbox.mjs && node scripts/stage-release-artifacts.mjs linux",
+    "predist:mac": "node scripts/assert-release-metadata.mjs && node scripts/assert-error-report-token.mjs && node scripts/assert-no-required-native-addons.mjs && bash packaging/mac/prepare-icon.sh",
+    "dist:mac": "npm run prepare:game-bridge && npm run build && node scripts/verify-error-report-token-in-build.mjs && electron-builder --mac dmg --universal --publish never && node scripts/stage-release-artifacts.mjs mac",
+    "predist:mac:auto": "npm run predist:mac",
+    "dist:mac:auto": "npm run prepare:game-bridge && npm run build && node scripts/verify-error-report-token-in-build.mjs && electron-builder --config packaging/mac/signed-auto-update.cjs --mac dmg zip --universal --publish never && node scripts/stage-release-artifacts.mjs mac && node scripts/stage-release-artifacts.mjs mac-auto",
+    "postinstall": "patch-package && node scripts/prune-minecraft-launcher-core-request.mjs && node scripts/prune-unused-register-scheme.mjs",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "adm-zip": "^0.6.1",
+    "axios": "^1.19.0",
+    "discord-rpc": "^4.0.1",
+    "electron-log": "^5.4.4",
+    "electron-updater": "6.8.9",
+    "framer-motion": "^10.16.4",
+    "lucide-react": "^0.292.0",
+    "minecraft-launcher-core": "^3.2.2",
+    "msmc": "^3.1.2",
+    "prismarine-nbt": "2.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "skinview3d": "^3.4.2",
+    "tar": "^7.5.22"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.8",
+    "@types/discord-rpc": "^4.0.11",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "^18.2.15",
+    "@vitejs/plugin-react": "^6.0.2",
+    "autoprefixer": "^10.4.16",
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.3",
+    "patch-package": "^8.0.0",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16",
+    "vite-plugin-electron": "^1.0.4",
+    "vite-plugin-electron-renderer": "^1.0.0"
+  },
+  "overrides": {
+    "adm-zip": "^0.6.1",
+    "form-data": "^2.5.6",
+    "js-yaml": "^4.3.2",
+    "qs": "^6.15.2",
+    "tough-cookie": "^4.1.4",
+    "undici": "^7.28.0",
+    "uuid": "^11.1.1"
+  }
+}

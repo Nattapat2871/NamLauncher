@@ -1,0 +1,32 @@
+# Author/creator: nattapat2871 (https://nattapat2871.me)
+name: Build Windows desktop installer
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  NAMLAUNCHER_ERROR_REPORT_TOKEN: ${{ secrets.NAMLAUNCHER_ERROR_REPORT_TOKEN }}
+
+jobs:
+  windows:
+    name: Windows x64
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run dist:win
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: NamLauncher-Windows-x64
+          path: release/NamLauncher-*-Installer.exe
+          if-no-files-found: error

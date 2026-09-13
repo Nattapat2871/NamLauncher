@@ -1,0 +1,81 @@
+diff --git a/node_modules/minecraft-launcher-core/components/handler.js b/node_modules/minecraft-launcher-core/components/handler.js
+index 6d3506c..8099513 100644
+--- a/node_modules/minecraft-launcher-core/components/handler.js
++++ b/node_modules/minecraft-launcher-core/components/handler.js
+@@ -7,6 +7,14 @@ const Zip = require('adm-zip')
+ const child = require('child_process')
+ let counter = 0
+ 
++const isMinecraftVersionAtLeast = (versionId, minorVersion) => {
++  const value = String(versionId || '')
++  const calendarMatch = value.match(/^(\d{2,})(?:\.|$)/)
++  if (calendarMatch) return Number(calendarMatch[1]) >= 26
++  const releaseMatch = value.match(/^1\.(\d+)/)
++  return releaseMatch ? Number(releaseMatch[1]) >= minorVersion : false
++}
++
+ class Handler {
+   constructor (client) {
+     this.client = client
+@@ -323,7 +331,7 @@ class Handler {
+   async getNatives () {
+     const nativeDirectory = path.resolve(this.options.overrides.natives || path.join(this.options.root, 'natives', this.version.id))
+ 
+-    if (parseInt(this.version.id.split('.')[1]) >= 19) return this.options.overrides.cwd || this.options.root
++    if (isMinecraftVersionAtLeast(this.version.id, 19)) return this.options.overrides.cwd || this.options.root
+ 
+     if (!fs.existsSync(nativeDirectory) || !fs.readdirSync(nativeDirectory).length) {
+       fs.mkdirSync(nativeDirectory, { recursive: true })
+@@ -394,7 +402,7 @@ class Handler {
+   }
+ 
+   isModernForge (json) {
+-    return json.inheritsFrom && json.inheritsFrom.split('.')[1] >= 12 && !(json.inheritsFrom === '1.12.2' && (json.id.split('.')[json.id.split('.').length - 1]) === '2847')
++    return json.inheritsFrom && isMinecraftVersionAtLeast(json.inheritsFrom, 12) && !(json.inheritsFrom === '1.12.2' && (json.id.split('.')[json.id.split('.').length - 1]) === '2847')
+   }
+ 
+   async getForgedWrapped () {
+diff --git a/node_modules/minecraft-launcher-core/components/launcher.js b/node_modules/minecraft-launcher-core/components/launcher.js
+index c7063a7..4cbac17 100644
+--- a/node_modules/minecraft-launcher-core/components/launcher.js
++++ b/node_modules/minecraft-launcher-core/components/launcher.js
+@@ -4,6 +4,11 @@ const Handler = require('./handler')
+ const fs = require('fs')
+ const EventEmitter = require('events').EventEmitter
+ 
++const getLegacyMinecraftMinorVersion = (versionId) => {
++  const match = String(versionId || '').match(/^1\.(\d+)/)
++  return match ? Number(match[1]) : null
++}
++
+ class MCLCore extends EventEmitter {
+   async launch (options) {
+     try {
+@@ -77,8 +82,9 @@ class MCLCore extends EventEmitter {
+         `-Xmx${this.handler.getMemory()[0]}`,
+         `-Xms${this.handler.getMemory()[1]}`
+       ]
++      const legacyMinorVersion = getLegacyMinecraftMinorVersion(versionFile.id)
+       if (this.handler.getOS() === 'osx') {
+-        if (parseInt(versionFile.id.split('.')[1]) > 12) jvm.push(await this.handler.getJVM())
++        if (legacyMinorVersion === null || legacyMinorVersion > 12) jvm.push(await this.handler.getJVM())
+       } else jvm.push(await this.handler.getJVM())
+ 
+       if (this.options.customArgs) jvm = jvm.concat(this.options.customArgs)
+@@ -86,12 +92,12 @@ class MCLCore extends EventEmitter {
+         jvm.push(`-Dlog4j.configurationFile=${path.resolve(this.options.overrides.logj4ConfigurationFile)}`)
+       }
+       // https://help.minecraft.net/hc/en-us/articles/4416199399693-Security-Vulnerability-in-Minecraft-Java-Edition
+-      if (parseInt(versionFile.id.split('.')[1]) === 18 && !parseInt(versionFile.id.split('.')[2])) jvm.push('-Dlog4j2.formatMsgNoLookups=true')
+-      if (parseInt(versionFile.id.split('.')[1]) === 17) jvm.push('-Dlog4j2.formatMsgNoLookups=true')
+-      if (parseInt(versionFile.id.split('.')[1]) < 17) {
++      if (legacyMinorVersion === 18 && !parseInt(versionFile.id.split('.')[2])) jvm.push('-Dlog4j2.formatMsgNoLookups=true')
++      if (legacyMinorVersion === 17) jvm.push('-Dlog4j2.formatMsgNoLookups=true')
++      if (legacyMinorVersion !== null && legacyMinorVersion < 17) {
+         if (!jvm.find(arg => arg.includes('Dlog4j.configurationFile'))) {
+           const configPath = path.resolve(this.options.overrides.cwd || this.options.root)
+-          const intVersion = parseInt(versionFile.id.split('.')[1])
++          const intVersion = legacyMinorVersion
+           if (intVersion >= 12) {
+             await this.handler.downloadAsync('https://launcher.mojang.com/v1/objects/02937d122c86ce73319ef9975b58896fc1b491d1/log4j2_112-116.xml',
+               configPath, 'log4j2_112-116.xml', true, 'log4j')

@@ -1,0 +1,7 @@
+# Author/creator: nattapat2871 (https://nattapat2871.me)
+.github/workflows/*.yml text eol=lf
+build/*.sh text eol=lf
+scripts/*.mjs text eol=lf
+patches/*.patch text eol=lf whitespace=-blank-at-eol
+package.json text eol=lf
+build/game-bridge/game-bridge-manifest.json text eol=lf

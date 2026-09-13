@@ -1,0 +1,283 @@
+{
+  "author": "nattapat2871 (https://nattapat2871.me)",
+  "version": "2026-09-14.1",
+  "updatedAt": "2026-09-14.1",
+  "documents": {
+    "en": {
+      "title": "NamLauncher Terms of Use and Privacy Notice",
+      "intro": "Plain-language rules for the NamLauncher website, installer, desktop launcher, local profiles, instances, downloads, required service data, optional integrations, and hosted services. This notice explains the product; it is not legal advice.",
+      "acceptance": "By continuing, you confirm that you have read and accept these Terms of Use and the Privacy Notice, including the required service heartbeat, gameplay-session events, active-instance mod-policy scan, and automatic sanitized error reports described below. You also understand that an Offline or Cracked profile is not a Minecraft license and does not authorize bypassing authentication.",
+      "terms": [
+        {
+          "title": "1. Acceptance and eligibility",
+          "body": "Use NamLauncher only if you can legally accept these terms and the required service processing disclosed in the Privacy Notice. If applicable law requires a parent or guardian, they must review and accept the terms with you. Do not use the product where doing so would be unlawful."
+        },
+        {
+          "title": "2. Open-source license and official services",
+          "body": "NamLauncher source code is licensed under GPL-3.0-only, which controls your rights to run, study, copy, modify, and redistribute that code and covered builds. These Terms govern access to NamLauncher-hosted services and use of official NamLauncher branding; they do not reduce rights granted by GPL-3.0-only or an applicable third-party license. Commercial use of the NamLauncher name, logo, or official-service identity requires prior written permission unless trademark law otherwise permits it."
+        },
+        {
+          "title": "3. Independent project and third-party rules",
+          "body": "NamLauncher is an independent community launcher and is not affiliated with or endorsed by Mojang, Microsoft, Discord, Modrinth, CurseForge, Fabric, Forge, Quilt, or NeoForge. Follow the Minecraft EULA and Usage Guidelines, server rules, and the terms and privacy notices of every connected service."
+        },
+        {
+          "title": "4. Minecraft entitlement, profiles, and server access",
+          "body": "Use only accounts and credentials you own or are authorized to use. A Microsoft account needs a valid Minecraft entitlement where required. An Offline or Cracked profile is only a local identity; it does not grant a Minecraft license, prove ownership, bypass online-mode authentication, or authorize entry to a server without the operator's permission."
+        },
+        {
+          "title": "5. Fair play, identity, and account conduct",
+          "body": "Do not impersonate another person, the developer, a server, or an official NamLauncher release. Do not steal, trade, phish, or abuse credentials or tokens; evade bans; manipulate player counts; harass or defraud others; or use cheats, exploits, or automation where the server or service prohibits them. You are responsible for activity performed through your device and profiles."
+        },
+        {
+          "title": "6. Security, automation, and harmful use",
+          "body": "Do not use NamLauncher to access systems or data without authorization, scan or exploit services without permission, bypass authentication, signatures, access controls, rate limits, or security checks, disrupt services, create accounts in bulk, scrape at abusive rates, distribute malware, steal secrets, or help another person do any of these things. Authorized automation must remain within published limits and the service owner's rules."
+        },
+        {
+          "title": "7. Open-source code and protected systems",
+          "body": "You may inspect, modify, test, and reverse engineer GPL-covered NamLauncher code and builds as allowed by GPL-3.0-only and applicable law. Those rights do not authorize extracting private service code, keys, credentials, or non-public protocols; accessing systems or data without permission; defeating access controls; disrupting services; abusing credentials; distributing malware; or concealing an exploit. Good-faith security research must remain authorized, avoid harm, and use responsible disclosure."
+        },
+        {
+          "title": "8. Redistribution, branding, and official builds",
+          "body": "You may redistribute GPL-covered NamLauncher source code and builds in compliance with GPL-3.0-only, including its source-availability, license, notice, and change-marking requirements. Do not present a modified or third-party build as an official NamLauncher release, imply endorsement, publish deceptive download links, or use protected NamLauncher logos and branding beyond what trademark law or TRADEMARKS.md permits. Clearly identify unofficial builds and retain applicable third-party notices."
+        },
+        {
+          "title": "9. Intellectual property and third-party content",
+          "body": "Copyright in NamLauncher code, design, and original assets belongs to nattapat2871 unless a file says otherwise. Covered source code is available under GPL-3.0-only, while the NamLauncher name, logo, and original brand artwork remain subject to separate trademark rights described in TRADEMARKS.md. Minecraft and related marks belong to Microsoft or Mojang. Mods, modpacks, loaders, resource packs, shaders, skins, libraries, and other files belong to their respective authors. Review bundled license notices and verify permissions, compatibility, and security before downloading, modifying, or sharing third-party content."
+        },
+        {
+          "title": "10. Device, network, LAN, and backup responsibility",
+          "body": "Keep your device, accounts, recovery methods, worlds, and NamLauncher data folder secure. Use LAN or private servers only on networks you trust and with every participant's permission. Back up worlds, instances, screenshots, mods, and other important data before updates, imports, migrations, repairs, or experiments. You remain responsible for firewall rules, server configuration, storage, bandwidth, and content you choose."
+        },
+        {
+          "title": "11. Downloads, updates, and connected services",
+          "body": "NamLauncher may contact hosted APIs and download Minecraft files, Java runtimes, loaders, metadata, launcher updates, and content you select. Verify official download sources and checksums when provided. Network providers and third parties may be unavailable, change files or rules, reject requests, or remove content without NamLauncher's control."
+        },
+        {
+          "title": "12. Availability, enforcement, and termination",
+          "body": "Hosted features are provided without a guaranteed uptime or support period. To protect users and services, NamLauncher may rate-limit, block, suspend, or terminate access to hosted APIs or support channels when these terms, law, or security controls are violated. You may end this agreement by stopping use and uninstalling NamLauncher; deleting the local data folder is a separate action. Provisions about ownership, disclaimers, liability, and lawful investigations survive termination where applicable."
+        },
+        {
+          "title": "13. Stable community build and warranty disclaimer",
+          "body": "NamLauncher is an unsigned stable community build and may contain defects, incompatibilities, or breaking changes. To the extent permitted by law, it is provided as-is and as-available without express or implied warranties, including fitness for a particular purpose, uninterrupted operation, compatibility, or security. Mandatory warranties and consumer rights that cannot legally be excluded remain unaffected."
+        },
+        {
+          "title": "14. Limitation of liability",
+          "body": "To the extent permitted by law, the developer is not liable for third-party outages or actions, incompatible or malicious content, account or server penalties, lost worlds or data, lost profits, or indirect, incidental, special, consequential, or punitive damage arising from use or inability to use NamLauncher. Nothing excludes liability or remedies that applicable law does not allow to be excluded or limited."
+        },
+        {
+          "title": "15. Changes, applicable law, severability, and contact",
+          "body": "Terms and features may change for security, legal, product, or service reasons. A material document update changes its version and requires acceptance again in the launcher. Applicable mandatory law remains controlling. If one provision is unenforceable, the remaining provisions continue to the extent allowed. Contact the developer through nattapat2871.me for permission, responsible disclosure, privacy, or support requests."
+        }
+      ],
+      "privacy": [
+        {
+          "title": "1. Scope, operator, and data minimization",
+          "body": "This notice covers NamLauncher software and services operated by nattapat2871. NamLauncher aims to collect only data needed to run, secure, measure, and support the product. NamLauncher does not sell personal data or use it for targeted advertising. Do not place secrets or unnecessary personal data in profile names, instance names, support messages, or logs you choose to send."
+        },
+        {
+          "title": "2. Local data and Microsoft authentication",
+          "body": "Settings, a random installation identifier, account summaries and authentication material, instances, content records, Java runtimes, image caches, skins, and logs are stored in the NamLauncher data folder on your device. Authentication material is encrypted with operating-system secure storage when available; on unsupported systems it may fall back to local storage without OS-backed encryption. While the LAN panel is open, NamLauncher passively listens for Minecraft announcements on your local network and processes the sender's private address, server description, and temporary port in memory; it does not send those discovery results to NamLauncher services or save them as history. NamLauncher does not ask you to send your Microsoft password to the NamLauncher website. Anyone with access to your operating-system account or data folder may be able to access local data, so secure the device and remove accounts before sharing it."
+        },
+        {
+          "title": "3. Required anonymous online heartbeat",
+          "body": "While the NamLauncher process is running, the required online-count heartbeat cannot be disabled. It continues while the launcher is minimized or hidden in the system tray and stops after the app fully exits. Discord IPC is a separate setting and, when enabled, also continues while the window is hidden. The launcher periodically sends its random installation identifier, launcher version, operating-system platform, and whether a game is running to the NamLauncher service. The server stores a peppered hash of the identifier with first and last seen times and the supplied metadata; heartbeat rows older than 7 days are deleted. The heartbeat does not intentionally include Microsoft tokens, chat, server addresses, or installed-file lists."
+        },
+        {
+          "title": "4. Required gameplay session analytics",
+          "body": "Gameplay session analytics is required while a game launched by NamLauncher is running and cannot be disabled. When Minecraft starts, while it remains open, and when it closes, the launcher sends a random session identifier, its random installation identifier, player profile name, account type, launcher version, platform, Minecraft version, loader, session start, periodic heartbeat, and session end with an exit reason and code when available. When the game reports an active multiplayer connection, the launcher also sends the normalized server address and port so the owner dashboard can rank by the actual endpoint instead of a user-created server name; private or local addresses are retained only for this access-controlled analytics purpose. Server receipt times are authoritative for rankings; duplicate events are idempotent, installation identifiers are stored only as peppered hashes, and sessions missing heartbeats are closed at the last observed heartbeat. Session rows are deleted after 365 days by default. This telemetry never includes Microsoft tokens, passwords, chat, game logs, worlds, or installed-file lists."
+        },
+        {
+          "title": "4A. Required active-instance mod policy signals",
+          "body": "Each game launch performs a required scan that cannot be disabled. It scans only regular JAR files directly inside the active instance's mods folder using bounded metadata and exact identifiers from a conservative signal registry. Only matched detector ID, category, display name, mod version when available, metadata-or-filename source, player profile name, account type, launcher and Minecraft versions, loader, scanned-file count, truncation state, random installation identifier, and policy-document version are sent. The service stores a peppered installation hash and deletes reports after 90 days by default. It never uploads JAR files, local paths, Microsoft tokens, passwords, chat, server addresses, game logs, or worlds. A match is an operational signal that may be false or reflect legitimate use; it is not proof of cheating and must not replace server-side anti-cheat or human review. A scan or reporting failure is logged but does not by itself block game launch."
+        },
+        {
+          "title": "4B. Optional cross-player launcher badge",
+          "body": "When the in-game badge setting is enabled, NamLauncher publishes short-lived badge presence for both Microsoft and Offline profiles so supported clients can show the NamLauncher icon in nametags, the Tab List, and standard player chat. The service stores a peppered hash of the profile UUID and returns only matches from UUIDs already supplied by the requesting game client; dedicated badge presence expires after about 120 seconds without a heartbeat. A current launcher that explicitly reports the badge as enabled in its required active gameplay-session heartbeat may use a short-lived compatibility fallback: the service derives the standard Java OfflinePlayer UUID from its validated player profile name solely to match a UUID supplied by the requesting client. For a legacy launcher that did not report a badge preference, the same alias is derived only while that installation also has unexpired dedicated badge presence, which is the legacy client's positive publication signal. These fallbacks end when the session or dedicated presence ends or becomes stale. A missing legacy preference alone is never assumed to be enabled, and a client that explicitly disables the badge is excluded. An Offline UUID is predictable from its profile name, so this decorative badge does not prove account ownership or identity. Disabling the badge stops future presence and rendering without disabling required service telemetry."
+        },
+        {
+          "title": "5. Website views, downloads, and server logs",
+          "body": "The website stores language, theme, and a short view-count cooldown timestamp in browser local storage; it does not use those values for targeted advertising. It uses a peppered hash derived from network address, user agent, and language for view deduplication, and a peppered network hash for download deduplication. These visitor-hash rows are deleted after 90 days. Hosting, reverse-proxy, and security logs may also contain network address, user agent, requested path, status, and time for reliability and abuse prevention; they are access-restricted and kept only as operationally necessary. Aggregated view and download totals may be retained without the visitor hash."
+        },
+        {
+          "title": "6. Operational and content-install audit records",
+          "body": "Requests to hosted NamLauncher services and content installations through Modrinth or CurseForge may create operational records containing source and action, a supplied player profile name or a shortened hashed client label, account type, provider and content identifier or title, result, elapsed time, bounded diagnostic detail, and a hashed network or client identifier. These records intentionally exclude passwords, authentication tokens, chat, and server addresses and are deleted after 30 days by default. This security and support logging is stored separately from the required online heartbeat stream."
+        },
+        {
+          "title": "7. Third-party providers and network disclosure",
+          "body": "Sign-in, metadata, searches, images, and downloads may contact Mojang, Microsoft, Modrinth, CurseForge, Fabric, Forge, Quilt, NeoForge, Java runtime providers, content CDNs, GitHub, or NamLauncher services. For Discord launch presence, an image reference passed to Discord may identify a verified public Minecraft texture to mc-heads.net. A provider contacted directly from your device receives ordinary network data such as your IP address and user agent; providers may also receive the account, query, content, texture, profile, or file identifier required for the request. Their own terms, privacy notices, locations, and retention rules apply."
+        },
+        {
+          "title": "8. Discord activity",
+          "body": "Discord IPC is enabled by default for a new launcher profile and can be disabled in Settings. While enabled and the NamLauncher process is running, including while its window is minimized or hidden in the system tray, NamLauncher may send activity such as launcher or game state, instance name, player profile name, elapsed time, and image references to the Discord desktop app on your device. For launch presence, NamLauncher may put a verified public Minecraft texture ID in a mc-heads.net player-head URL passed to Discord. Legacy callers of the head-image helper may instead use a profile UUID or name. If NamLauncher cannot verify that the texture ID exactly matches the selected skin file, the launch path omits the small player image rather than risk showing the wrong head. NamLauncher sends nothing through its custom IPC when the setting is off or the process fully exits. Discord and image providers control their own processing, display, and retention."
+        },
+        {
+          "title": "8A. Optional Discord account linking",
+          "body": "You may optionally link a Discord account from Settings using Discord OAuth with the identify and guilds.join scopes. The NamLauncher server temporarily uses the provider token to read your Discord user ID, username, display name, and avatar reference and to ask the configured NamLauncher bot to add that account to the Discord server selected by the owner, then attempts to revoke the provider token immediately. The desktop launcher receives only a long-lived opaque NamLauncher session stored with operating-system secure storage when available; no Discord password, email, guild list, messages, or reusable Discord token is stored in the launcher. If automatic joining is unavailable or Discord membership screening remains, the sign-in still completes and the user can use the public /discord invite link. While linked, the server may attach that Discord identity to new sanitized error reports so the developer can distinguish the real support user from a changeable Minecraft profile name. You can disconnect from Settings to revoke the NamLauncher session and stop future linking; reports already received follow the error-report retention and resolution rules below."
+        },
+        {
+          "title": "9. Automatic error reports, player confirmation, and Discord delivery",
+          "body": "When NamLauncher detects a launcher or Minecraft error, it automatically submits a sanitized report without waiting for the user to press a button. The report can include its title, context, message, sanitized logs, occurrence time, launcher and Electron versions, platform and architecture, player profile name, account type, and limited CPU, RAM, GPU, storage-model, and operating-system details. The existing button records a separate player confirmation that the error occurred; copying remains a local manual action. Sanitization is best effort, so review copied logs before sharing them elsewhere. Reports may be relayed to an access-controlled developer Discord channel or direct message. When marked fixed, sensitive content in the NamLauncher server database and report archive is erased, and NamLauncher attempts to replace linked Discord copies with a minimal resolved notice; minimal resolution, confirmation counts, and message-link metadata may remain. Provider backups or a Discord copy may remain if synchronization fails or under Discord's retention controls."
+        },
+        {
+          "title": "10. Security, retention, and disclosures",
+          "body": "NamLauncher uses access controls, bounded inputs, hashing, and transport security where available, but no system can guarantee absolute security. Data may be disclosed when reasonably necessary to operate or secure the service, investigate abuse, comply with valid legal process, or protect users and rights. Retention periods above are defaults; backups, provider copies, legal duties, active security incidents, and unresolved support cases may require a longer or shorter period."
+        },
+        {
+          "title": "11. Choices, deletion, correction, and contact",
+          "body": "The online heartbeat, gameplay session analytics, active-instance mod-policy scan, and automatic sanitized error reports are required service functions and cannot be disabled while using the relevant launcher function. You can disable Discord IPC and the cross-player badge independently, fully exit or uninstall NamLauncher to stop future launcher processing, remove accounts, delete instances, clear caches and logs, or delete the NamLauncher data folder. Uninstalling the application alone may leave that folder so worlds are not lost. To request access, correction, or deletion of a report or other server-held personal data, contact the developer through nattapat2871.me and provide enough non-secret detail to locate it. Requests are handled subject to identity verification, security needs, legal obligations, backups, and data controlled by third parties."
+        }
+      ]
+    },
+    "th": {
+      "title": "ข้อกำหนดการใช้งานและประกาศความเป็นส่วนตัว NamLauncher",
+      "intro": "กฎฉบับอ่านง่ายสำหรับเว็บไซต์ ตัวติดตั้ง ลันเชอร์เดสก์ท็อป โปรไฟล์ในเครื่อง อินสแตนซ์ การดาวน์โหลด ข้อมูลบริการที่จำเป็น การเชื่อมต่อเสริม และบริการออนไลน์ของ NamLauncher เอกสารนี้อธิบายผลิตภัณฑ์และไม่ใช่คำปรึกษาทางกฎหมาย",
+      "acceptance": "เมื่อใช้งานต่อ คุณยืนยันว่าได้อ่านและยอมรับข้อกำหนดการใช้งานกับประกาศความเป็นส่วนตัวนี้ รวมถึง heartbeat ของบริการ เหตุการณ์ session การเล่น การตรวจนโยบายมอดของอินสแตนซ์ที่เปิด และรายงาน error ที่ลดข้อมูลอ่อนไหวแบบอัตโนมัติตามรายละเอียดด้านล่าง และเข้าใจว่าโปรไฟล์ Offline หรือ Cracked ไม่ใช่ใบอนุญาต Minecraft และไม่อนุญาตให้ข้ามระบบยืนยันตัวตน",
+      "terms": [
+        {
+          "title": "1. การยอมรับและคุณสมบัติผู้ใช้",
+          "body": "ใช้ NamLauncher เฉพาะเมื่อคุณสามารถยอมรับข้อกำหนดนี้และการประมวลผลที่จำเป็นซึ่งเปิดเผยในประกาศความเป็นส่วนตัวได้ตามกฎหมาย หากกฎหมายกำหนดให้มีผู้ปกครอง ผู้ปกครองต้องอ่านและยอมรับร่วมกับคุณ ห้ามใช้ผลิตภัณฑ์ในพื้นที่หรือวิธีที่ผิดกฎหมาย"
+        },
+        {
+          "title": "2. สิทธิ์โอเพนซอร์สและบริการทางการ",
+          "body": "ซอร์สโค้ด NamLauncher ใช้ license แบบ GPL-3.0-only ซึ่งกำหนดสิทธิ์ในการใช้งาน ศึกษา คัดลอก แก้ไข และแจกจ่ายโค้ดกับ build ที่อยู่ภายใต้ license นี้ ข้อกำหนดฉบับนี้ใช้กับการเข้าถึงบริการที่ NamLauncher เป็นผู้ให้บริการและการใช้แบรนด์ทางการ โดยไม่ลดทอนสิทธิ์จาก GPL-3.0-only หรือ license บุคคลที่สาม การใช้ชื่อ โลโก้ หรือภาพลักษณ์บริการทางการของ NamLauncher เชิงพาณิชย์ต้องได้รับอนุญาตเป็นลายลักษณ์อักษรก่อน เว้นแต่กฎหมายเครื่องหมายการค้าจะอนุญาตไว้"
+        },
+        {
+          "title": "3. โปรเจกต์อิสระและกฎของบริการอื่น",
+          "body": "NamLauncher เป็นลันเชอร์ชุมชนอิสระ ไม่ได้เกี่ยวข้องหรือรับรองโดย Mojang, Microsoft, Discord, Modrinth, CurseForge, Fabric, Forge, Quilt หรือ NeoForge ผู้ใช้ต้องปฏิบัติตาม Minecraft EULA, Usage Guidelines, กฎเซิร์ฟเวอร์ และข้อกำหนดกับประกาศความเป็นส่วนตัวของทุกบริการที่เชื่อมต่อ"
+        },
+        {
+          "title": "4. สิทธิ์ Minecraft โปรไฟล์ และการเข้าเซิร์ฟเวอร์",
+          "body": "ใช้เฉพาะบัญชีและข้อมูลรับรองที่เป็นของคุณหรือได้รับอนุญาตให้ใช้ บัญชี Microsoft ต้องมีสิทธิ์ Minecraft ที่ถูกต้องเมื่อบริการกำหนด โปรไฟล์ Offline หรือ Cracked เป็นเพียงตัวตนในเครื่อง ไม่ได้ให้ใบอนุญาต Minecraft ไม่ได้พิสูจน์ความเป็นเจ้าของ ไม่ข้าม online-mode authentication และไม่อนุญาตให้เข้าเซิร์ฟเวอร์โดยไม่มีความยินยอมจากผู้ดูแล"
+        },
+        {
+          "title": "5. การเล่นอย่างเป็นธรรม ตัวตน และบัญชี",
+          "body": "ห้ามสวมรอยเป็นบุคคลอื่น ผู้พัฒนา เซิร์ฟเวอร์ หรือ NamLauncher รุ่นทางการ ห้ามขโมย ซื้อขาย phishing หรือใช้ข้อมูลรับรองและ token ในทางมิชอบ เลี่ยงแบน ปั่นจำนวนผู้เล่น คุกคาม ฉ้อโกง หรือใช้ cheat, exploit และ automation ที่เซิร์ฟเวอร์หรือบริการห้าม คุณรับผิดชอบกิจกรรมที่ทำผ่านอุปกรณ์และโปรไฟล์ของคุณ"
+        },
+        {
+          "title": "6. ความปลอดภัย ระบบอัตโนมัติ และการใช้งานที่เป็นอันตราย",
+          "body": "ห้ามใช้ NamLauncher เพื่อเข้าถึงระบบหรือข้อมูลโดยไม่ได้รับอนุญาต สแกนหรือโจมตีบริการโดยไม่มีสิทธิ์ ข้าม authentication, ลายเซ็น, access control, rate limit หรือ security check รบกวนบริการ สร้างบัญชีจำนวนมาก scrape อย่างรุนแรง แจกมัลแวร์ ขโมยความลับ หรือช่วยผู้อื่นทำสิ่งเหล่านี้ ระบบอัตโนมัติที่ได้รับอนุญาตต้องอยู่ภายในข้อจำกัดที่ประกาศและกฎของเจ้าของบริการ"
+        },
+        {
+          "title": "7. โค้ดโอเพนซอร์สและระบบที่ได้รับการปกป้อง",
+          "body": "คุณสามารถตรวจสอบ แก้ไข ทดสอบ และทำวิศวกรรมย้อนกลับโค้ดหรือ build ของ NamLauncher ที่อยู่ภายใต้ GPL ได้ตาม GPL-3.0-only และกฎหมายที่ใช้บังคับ สิทธิ์ดังกล่าวไม่อนุญาตให้ดึงโค้ดบริการส่วนตัว key ข้อมูลรับรอง หรือ protocol ที่ไม่เปิดเผย เข้าถึงระบบหรือข้อมูลโดยไม่มีสิทธิ์ ทำลาย access control รบกวนบริการ ใช้ข้อมูลบัญชีในทางมิชอบ แจกมัลแวร์ หรือปกปิดช่องโหว่ การวิจัยความปลอดภัยโดยสุจริตต้องอยู่ในขอบเขตที่ได้รับอนุญาต ไม่ก่อความเสียหาย และเปิดเผยอย่างรับผิดชอบ"
+        },
+        {
+          "title": "8. การแจกจ่าย แบรนด์ และรุ่นทางการ",
+          "body": "คุณสามารถแจกจ่ายซอร์สโค้ดและ build ของ NamLauncher ที่อยู่ภายใต้ GPL ได้เมื่อปฏิบัติตาม GPL-3.0-only รวมถึงข้อกำหนดเรื่องการเปิดเผยซอร์ส license ประกาศ และการระบุการแก้ไข ห้ามแสดง build ที่แก้ไขหรือจัดทำโดยบุคคลที่สามว่าเป็น NamLauncher รุ่นทางการ สื่อว่าได้รับการรับรอง เผยแพร่ลิงก์ดาวน์โหลดหลอกลวง หรือใช้โลโก้และแบรนด์ NamLauncher ที่ได้รับความคุ้มครองเกินกว่าที่กฎหมายเครื่องหมายการค้าหรือ TRADEMARKS.md อนุญาต ต้องระบุ build ที่ไม่เป็นทางการให้ชัดเจนและเก็บประกาศของบุคคลที่สามที่เกี่ยวข้องไว้"
+        },
+        {
+          "title": "9. ทรัพย์สินทางปัญญาและคอนเทนต์บุคคลที่สาม",
+          "body": "ลิขสิทธิ์ในโค้ด การออกแบบ และ asset ต้นฉบับของ NamLauncher เป็นของ nattapat2871 เว้นแต่ไฟล์จะระบุอย่างอื่น ซอร์สโค้ดที่ครอบคลุมเปิดให้ใช้ตาม GPL-3.0-only ส่วนชื่อ โลโก้ และภาพแบรนด์ต้นฉบับของ NamLauncher ยังอยู่ภายใต้สิทธิ์เครื่องหมายการค้าแยกต่างหากตาม TRADEMARKS.md Minecraft และเครื่องหมายที่เกี่ยวข้องเป็นของ Microsoft หรือ Mojang ส่วน mod, modpack, loader, resource pack, shader, skin, library และไฟล์อื่นเป็นของผู้สร้างแต่ละราย โปรดอ่านประกาศ license ที่แนบมาและตรวจสิทธิ์ ความเข้ากันได้ และความปลอดภัยก่อนดาวน์โหลด แก้ไข หรือแชร์คอนเทนต์บุคคลที่สาม"
+        },
+        {
+          "title": "10. ความรับผิดชอบต่ออุปกรณ์ เครือข่าย LAN และข้อมูลสำรอง",
+          "body": "ดูแลอุปกรณ์ บัญชี วิธีการกู้คืน world และโฟลเดอร์ข้อมูล NamLauncher ให้ปลอดภัย ใช้ LAN หรือ private server เฉพาะบนเครือข่ายที่ไว้ใจและได้รับความยินยอมจากผู้ร่วมเล่นทุกคน สำรอง world, instance, screenshot, mod และข้อมูลสำคัญก่อน update, import, ย้ายข้อมูล, repair หรือทดลอง คุณรับผิดชอบ firewall การตั้งค่าเซิร์ฟเวอร์ พื้นที่เก็บข้อมูล bandwidth และคอนเทนต์ที่เลือก"
+        },
+        {
+          "title": "11. การดาวน์โหลด อัปเดต และบริการที่เชื่อมต่อ",
+          "body": "NamLauncher อาจติดต่อ hosted API และดาวน์โหลดไฟล์ Minecraft, Java runtime, loader, metadata, launcher update และคอนเทนต์ที่คุณเลือก โปรดตรวจแหล่งดาวน์โหลดทางการและ checksum เมื่อมี ผู้ให้บริการเครือข่ายและบุคคลที่สามอาจล่ม เปลี่ยนไฟล์หรือกฎ ปฏิเสธคำขอ หรือลบคอนเทนต์โดยอยู่นอกการควบคุมของ NamLauncher"
+        },
+        {
+          "title": "12. ความพร้อมใช้งาน การบังคับใช้ และการยุติ",
+          "body": "ฟีเจอร์ออนไลน์ไม่มีการรับประกัน uptime หรือระยะเวลาสนับสนุน เพื่อปกป้องผู้ใช้และบริการ NamLauncher อาจจำกัดอัตรา บล็อก ระงับ หรือยุติการเข้าถึง hosted API หรือช่องทางสนับสนุนเมื่อมีการละเมิดข้อกำหนด กฎหมาย หรือระบบความปลอดภัย คุณยุติข้อตกลงได้ด้วยการหยุดใช้และถอนการติดตั้ง การลบโฟลเดอร์ข้อมูลในเครื่องเป็นอีกขั้นตอนหนึ่ง ข้อกำหนดเรื่องกรรมสิทธิ์ ข้อสงวนความรับผิด และการตรวจสอบที่ชอบด้วยกฎหมายยังมีผลหลังยุติเท่าที่เกี่ยวข้อง"
+        },
+        {
+          "title": "13. Community build และข้อสงวนการรับประกัน",
+          "body": "NamLauncher เป็นรุ่นเสถียรแบบ community build ที่ยังไม่มีลายเซ็นโค้ดและอาจมี bug ความไม่เข้ากัน หรือการเปลี่ยนแปลงที่กระทบการใช้งาน เท่าที่กฎหมายอนุญาต ผลิตภัณฑ์ให้ตามสภาพจริงและตามที่พร้อมใช้งานโดยไม่มีการรับประกันโดยชัดแจ้งหรือโดยนัย รวมถึงความเหมาะสมกับวัตถุประสงค์ การทำงานต่อเนื่อง ความเข้ากันได้ หรือความปลอดภัย การรับประกันบังคับและสิทธิ์ผู้บริโภคที่กฎหมายห้ามยกเว้นยังคงมีผล"
+        },
+        {
+          "title": "14. ข้อจำกัดความรับผิด",
+          "body": "เท่าที่กฎหมายอนุญาต ผู้พัฒนาไม่รับผิดต่อบริการบุคคลที่สามที่ล่มหรือดำเนินการ คอนเทนต์ที่ไม่เข้ากันหรือเป็นอันตราย การลงโทษบัญชีหรือเซิร์ฟเวอร์ world หรือข้อมูลสูญหาย กำไรที่เสียไป หรือความเสียหายทางอ้อม โดยบังเอิญ พิเศษ สืบเนื่อง หรือเชิงลงโทษจากการใช้หรือไม่สามารถใช้ NamLauncher ไม่มีข้อความใดยกเว้นความรับผิดหรือการเยียวยาที่กฎหมายไม่อนุญาตให้ยกเว้นหรือจำกัด"
+        },
+        {
+          "title": "15. การเปลี่ยนแปลง กฎหมาย การแยกข้อกำหนด และการติดต่อ",
+          "body": "ข้อกำหนดและฟีเจอร์อาจเปลี่ยนด้วยเหตุผลด้านความปลอดภัย กฎหมาย ผลิตภัณฑ์ หรือบริการ การแก้เอกสารที่มีสาระสำคัญจะเปลี่ยน version และลันเชอร์จะขอให้ยอมรับอีกครั้ง กฎหมายบังคับที่ใช้บังคับยังมีผลเหนือกว่า หากข้อหนึ่งบังคับใช้ไม่ได้ ข้ออื่นยังมีผลเท่าที่กฎหมายอนุญาต ติดต่อผู้พัฒนาผ่าน nattapat2871.me สำหรับการขออนุญาต responsible disclosure ความเป็นส่วนตัว หรือการสนับสนุน"
+        }
+      ],
+      "privacy": [
+        {
+          "title": "1. ขอบเขต ผู้ดูแล และการเก็บข้อมูลเท่าที่จำเป็น",
+          "body": "ประกาศนี้ครอบคลุมซอฟต์แวร์และบริการ NamLauncher ที่ดูแลโดย nattapat2871 ระบบมุ่งเก็บเฉพาะข้อมูลที่จำเป็นต่อการทำงาน ความปลอดภัย การวัดผล และการสนับสนุน NamLauncher ไม่ขายข้อมูลส่วนบุคคลและไม่ใช้ข้อมูลเพื่อโฆษณาแบบเจาะจง โปรดอย่าใส่ความลับหรือข้อมูลส่วนบุคคลที่ไม่จำเป็นในชื่อโปรไฟล์ ชื่อ instance ข้อความขอความช่วยเหลือ หรือ log ที่คุณเลือกส่ง"
+        },
+        {
+          "title": "2. ข้อมูลในเครื่องและการยืนยันตัวตน Microsoft",
+          "body": "การตั้งค่า รหัสการติดตั้งแบบสุ่ม สรุปบัญชีและข้อมูลยืนยันตัวตน instance รายการคอนเทนต์ Java runtime cache รูปภาพ skin และ log จะเก็บในโฟลเดอร์ข้อมูล NamLauncher บนอุปกรณ์ ข้อมูลยืนยันตัวตนจะเข้ารหัสด้วย secure storage ของระบบปฏิบัติการเมื่อรองรับ หากระบบไม่รองรับอาจ fallback ไปเก็บในเครื่องโดยไม่มีการเข้ารหัสระดับระบบปฏิบัติการ ระหว่างเปิดหน้า LAN ระบบจะรับฟังประกาศ Minecraft ในเครือข่ายภายในแบบ passive และประมวลผล private address คำอธิบายเซิร์ฟเวอร์ และพอร์ตชั่วคราวไว้ในหน่วยความจำ โดยไม่ส่งผลการค้นหาไปยังบริการ NamLauncher หรือบันทึกเป็นประวัติ NamLauncher ไม่ขอให้ส่งรหัสผ่าน Microsoft ไปยังเว็บไซต์ ผู้ที่เข้าถึงบัญชีระบบปฏิบัติการหรือโฟลเดอร์ข้อมูลอาจเข้าถึงข้อมูลในเครื่องได้ จึงควรล็อกอุปกรณ์และลบบัญชีก่อนแบ่งปันเครื่อง"
+        },
+        {
+          "title": "3. Heartbeat จำนวนออนไลน์แบบไม่ระบุตัวตนที่จำเป็น",
+          "body": "ระหว่างที่ process ของ NamLauncher ทำงาน heartbeat สำหรับจำนวนออนไลน์เป็นฟังก์ชันที่จำเป็นและปิดไม่ได้ โดยจะยังส่งต่อเมื่อย่อลันเชอร์หรือซ่อนในถาดระบบ และหยุดหลังออกจากโปรแกรมโดยสมบูรณ์ Discord IPC เป็นการตั้งค่าแยกและเมื่อเปิดจะทำงานต่อระหว่างซ่อนหน้าต่าง ลันเชอร์จะส่งรหัสการติดตั้งแบบสุ่ม version ของลันเชอร์ platform ของระบบปฏิบัติการ และสถานะว่าเกมกำลังทำงานหรือไม่ไปยังบริการ NamLauncher เป็นระยะ เซิร์ฟเวอร์เก็บ hash ที่ใส่ pepper ของรหัส พร้อมเวลาแรกและล่าสุดที่พบกับ metadata ดังกล่าว และลบ heartbeat ที่เก่ากว่า 7 วัน Heartbeat ไม่ได้ตั้งใจส่ง Microsoft token แชต ที่อยู่เซิร์ฟเวอร์ หรือรายการไฟล์ที่ติดตั้ง"
+        },
+        {
+          "title": "4. สถิติ session การเล่นเกมที่จำเป็น",
+          "body": "สถิติ session การเล่นเกมเป็นฟังก์ชันที่จำเป็นและปิดไม่ได้ระหว่างเกมที่เปิดผ่าน NamLauncher เมื่อ Minecraft เริ่มทำงาน ระหว่างที่ยังเปิดอยู่ และเมื่อปิดเกม ลันเชอร์จะส่งรหัส session แบบสุ่ม รหัสการติดตั้งแบบสุ่ม ชื่อโปรไฟล์ผู้เล่น ประเภทบัญชี version ของลันเชอร์ platform, version ของ Minecraft, loader, session start, heartbeat เป็นระยะ และ session end พร้อมเหตุผลกับ exit code เมื่อมี หากเกมรายงานว่ากำลังเชื่อมต่อเซิร์ฟเวอร์ ลันเชอร์จะส่งที่อยู่และพอร์ตแบบ normalized เพิ่ม เพื่อให้แดชบอร์ดเจ้าของจัดอันดับจาก endpoint จริงแทนชื่อเซิร์ฟเวอร์ที่ผู้เล่นตั้งเอง โดยที่อยู่ private หรือ local จะเก็บเพื่อสถิตินี้ในระบบที่จำกัดสิทธิ์เท่านั้น ระบบใช้เวลาที่เซิร์ฟเวอร์รับเป็นหลักในการจัดอันดับ ป้องกัน event ซ้ำ เก็บรหัสการติดตั้งเป็น hash ที่ใส่ pepper เท่านั้น และปิด session ที่ขาด heartbeat ณ heartbeat ล่าสุด ค่าเริ่มต้นจะลบ session หลัง 365 วัน ข้อมูลนี้ไม่ส่ง Microsoft token รหัสผ่าน แชต log เกม world หรือรายการไฟล์ที่ติดตั้ง"
+        },
+        {
+          "title": "4A. การรายงานสัญญาณมอดของอินสแตนซ์ที่เปิดแบบจำเป็น",
+          "body": "ทุกครั้งที่เริ่มเกม ระบบจะตรวจตามนโยบายโดยปิดไม่ได้ และตรวจเฉพาะไฟล์ JAR ปกติที่อยู่โดยตรงในโฟลเดอร์ mods ของอินสแตนซ์ที่กำลังเปิด โดยอ่าน metadata แบบจำกัดขนาดและเทียบ identifier ที่ตรงกับรายการสัญญาณแบบระมัดระวัง ระบบส่งเฉพาะ detector ID, หมวดหมู่, ชื่อแสดง, version ของมอดเมื่อมี, ที่มาจาก metadata หรือชื่อไฟล์, ชื่อโปรไฟล์ผู้เล่น, ประเภทบัญชี, version ของลันเชอร์และ Minecraft, loader, จำนวนไฟล์ที่ตรวจ, สถานะว่าถึงขีดจำกัดหรือไม่, รหัสติดตั้งแบบสุ่ม และ version เอกสารนโยบาย บริการเก็บรหัสติดตั้งเป็น hash ที่ใส่ pepper และค่าเริ่มต้นลบรายงานหลัง 90 วัน โดยไม่อัปโหลดไฟล์ JAR, พาธในเครื่อง, Microsoft token, รหัสผ่าน, แชต, ที่อยู่เซิร์ฟเวอร์, log เกม หรือ world ผลที่ตรงเป็นเพียงสัญญาณการทำงานซึ่งอาจผิดพลาดหรือเป็นการใช้งานที่ชอบด้วยกฎหมาย ไม่ใช่หลักฐานยืนยันการโกง และไม่ควรแทนระบบ anti-cheat ฝั่งเซิร์ฟเวอร์หรือการตรวจสอบโดยคน หากการตรวจหรือส่งรายงานล้มเหลว ระบบจะบันทึกข้อผิดพลาดแต่ไม่บล็อกการเปิดเกมเพียงเพราะเหตุนี้"
+        },
+        {
+          "title": "4B. ไอคอนลันเชอร์ข้ามผู้เล่นแบบเลือกได้",
+          "body": "เมื่อเปิดการตั้งค่าไอคอนในเกม NamLauncher จะเผยแพร่สถานะอายุสั้นสำหรับทั้งโปรไฟล์ Microsoft และ Offline เพื่อให้ client ที่รองรับแสดงไอคอน NamLauncher บนชื่อเหนือหัว Tab List และข้อความแชตผู้เล่นมาตรฐาน บริการเก็บ hash ที่ใส่ pepper ของ UUID โปรไฟล์ และตอบกลับเฉพาะ UUID ที่เกมฝั่งผู้ขอส่งมาอยู่แล้ว สถานะไอคอนโดยตรงจะหมดอายุประมาณ 120 วินาทีเมื่อไม่มี heartbeat สำหรับลันเชอร์ปัจจุบันที่ระบุอย่างชัดเจนว่าเปิดไอคอนใน heartbeat ของ session การเล่นที่จำเป็น ระบบอาจใช้ทางสำรองอายุสั้นโดยสร้าง UUID มาตรฐานแบบ Java OfflinePlayer จากชื่อโปรไฟล์ผู้เล่นที่ผ่านการตรวจรูปแบบแล้ว เพื่อเทียบเฉพาะ UUID ที่ client ผู้ขอส่งมาเท่านั้น สำหรับลันเชอร์รุ่นเก่าที่ไม่ส่งค่าการตั้งค่า ระบบจะสร้าง alias เดียวกันเฉพาะระหว่างที่การติดตั้งนั้นยังมีสถานะไอคอนโดยตรงซึ่งยังไม่หมดอายุ เพราะสถานะดังกล่าวคือสัญญาณการเผยแพร่เชิงบวกของ client รุ่นเก่า ทางสำรองเหล่านี้สิ้นสุดเมื่อ session หรือสถานะโดยตรงจบหรือหมดอายุ ระบบจะไม่ถือว่าค่าที่ลันเชอร์รุ่นเก่าไม่ได้ส่งมาเพียงอย่างเดียวนั้นเป็นการเปิด และจะไม่นำ client ที่ระบุว่าปิดไอคอนมารวม UUID ของโปรไฟล์ Offline คาดเดาได้จากชื่อโปรไฟล์ ไอคอนนี้จึงเป็นเพียงเครื่องหมายตกแต่งและไม่พิสูจน์เจ้าของบัญชีหรือตัวตน การปิดไอคอนจะหยุดสถานะและการแสดงผลในอนาคตโดยไม่ปิดข้อมูลบริการที่จำเป็น"
+        },
+        {
+          "title": "5. การเข้าชมเว็บไซต์ การดาวน์โหลด และ server log",
+          "body": "เว็บไซต์เก็บภาษา theme และ timestamp ระยะสั้นสำหรับป้องกันนับ view ซ้ำใน browser local storage และไม่ใช้ข้อมูลเหล่านี้เพื่อโฆษณาแบบเจาะจง เว็บไซต์ใช้ hash ที่ใส่ pepper ซึ่งสร้างจาก network address, user agent และภาษาเพื่อป้องกันนับการเข้าชมซ้ำ และใช้ hash ของเครือข่ายสำหรับป้องกันนับดาวน์โหลดซ้ำ ข้อมูล visitor hash เหล่านี้จะถูกลบหลัง 90 วัน ระบบ hosting, reverse proxy และ security log อาจมี network address, user agent, path ที่เรียก สถานะ และเวลาเพื่อความเสถียรและป้องกันการใช้งานผิด โดยจำกัดผู้เข้าถึงและเก็บเท่าที่จำเป็นต่อการดำเนินงาน ยอดรวมการเข้าชมและดาวน์โหลดอาจเก็บต่อโดยไม่มี visitor hash"
+        },
+        {
+          "title": "6. บันทึกการทำงานและการติดตั้งคอนเทนต์",
+          "body": "คำขอไปยังบริการ NamLauncher และการติดตั้งคอนเทนต์ผ่าน Modrinth หรือ CurseForge อาจสร้างบันทึกที่มีแหล่งที่มาและการกระทำ ชื่อโปรไฟล์ผู้เล่นที่ส่งมาหรือป้าย client hash แบบย่อ ประเภทบัญชี ผู้ให้บริการกับรหัสหรือชื่อคอนเทนต์ ผลลัพธ์ ระยะเวลา รายละเอียดวิเคราะห์ที่จำกัดขนาด และรหัสเครือข่ายหรือ client ที่ hash แล้ว บันทึกเหล่านี้ตั้งใจไม่เก็บรหัสผ่าน authentication token แชต และที่อยู่เซิร์ฟเวอร์ และค่าเริ่มต้นจะลบหลัง 30 วัน การเก็บเพื่อความปลอดภัยและสนับสนุนนี้แยกจาก stream heartbeat ออนไลน์ที่จำเป็น"
+        },
+        {
+          "title": "7. ผู้ให้บริการบุคคลที่สามและข้อมูลเครือข่าย",
+          "body": "การลงชื่อเข้าใช้ metadata การค้นหา รูปภาพ และการดาวน์โหลดอาจติดต่อ Mojang, Microsoft, Modrinth, CurseForge, Fabric, Forge, Quilt, NeoForge, ผู้ให้บริการ Java runtime, content CDN, GitHub หรือบริการ NamLauncher สำหรับ Discord launch presence ข้อมูลอ้างอิงรูปที่ส่งให้ Discord อาจระบุ Minecraft texture สาธารณะที่ตรวจสอบแล้วไปยัง mc-heads.net ผู้ให้บริการที่อุปกรณ์ติดต่อโดยตรงจะได้รับข้อมูลเครือข่ายทั่วไป เช่น IP address และ user agent และผู้ให้บริการอาจได้รับบัญชี คำค้น รหัสคอนเทนต์ texture โปรไฟล์ หรือรหัสไฟล์ที่จำเป็นต่อคำขอ โดยข้อกำหนด ประกาศความเป็นส่วนตัว สถานที่ประมวลผล และระยะเวลาเก็บของแต่ละรายมีผลแยกกัน"
+        },
+        {
+          "title": "8. กิจกรรม Discord",
+          "body": "Discord IPC จะเปิดเป็นค่าเริ่มต้นสำหรับโปรไฟล์ลันเชอร์ใหม่และปิดได้ใน Settings ระหว่างที่เปิดและ process ของ NamLauncher ยังทำงานอยู่ รวมถึงตอนย่อหรือซ่อนหน้าต่างไว้ใน system tray NamLauncher อาจส่งสถานะลันเชอร์หรือเกม ชื่อ instance ชื่อโปรไฟล์ผู้เล่น ระยะเวลา และข้อมูลอ้างอิงรูปไปยังแอป Discord desktop บนอุปกรณ์ สำหรับ launch presence NamLauncher อาจใส่ Minecraft texture ID สาธารณะที่ตรวจสอบแล้วลงใน URL ภาพหัวของ mc-heads.net ที่ส่งให้ Discord ส่วน caller รุ่นเก่าของตัวช่วยรูปหัวอาจใช้ UUID หรือชื่อโปรไฟล์แทน หาก NamLauncher ยืนยันไม่ได้ว่า texture ID ตรงกับไฟล์สกินที่เลือก ระบบ launch จะไม่ส่งภาพผู้เล่นขนาดเล็ก แทนการเสี่ยงแสดงหัวผิด NamLauncher จะไม่ส่งผ่าน custom IPC เมื่อปิดการตั้งค่าหรือออกจาก process โดยสมบูรณ์ ส่วน Discord และผู้ให้บริการรูปเป็นผู้ควบคุมการประมวลผล การแสดง และการเก็บข้อมูลของตน"
+        },
+        {
+          "title": "8A. การเชื่อมบัญชี Discord แบบเลือกได้",
+          "body": "ผู้ใช้เลือกเชื่อมบัญชี Discord จาก Settings ได้ผ่าน Discord OAuth โดยขอสิทธิ์ identify และ guilds.join เซิร์ฟเวอร์ NamLauncher จะใช้ token ของผู้ให้บริการชั่วคราวเพื่ออ่าน Discord user ID, username, display name และข้อมูลอ้างอิงรูปโปรไฟล์ รวมถึงขอให้บอท NamLauncher ที่ตั้งค่าไว้เพิ่มบัญชีนี้เข้า Discord server ที่เจ้าของกำหนด แล้วพยายาม revoke token ของผู้ใช้ทันที ตัวลันเชอร์จะได้รับเพียง NamLauncher session แบบ opaque อายุยาวซึ่งเข้ารหัสด้วยระบบเก็บข้อมูลปลอดภัยของระบบปฏิบัติการเมื่อรองรับ และจะไม่เก็บรหัสผ่าน Discord, email, รายชื่อเซิร์ฟเวอร์, ข้อความ หรือ Discord token ที่นำกลับไปใช้ได้ หากเพิ่มสมาชิกอัตโนมัติไม่ได้หรือ Discord ยังให้ผ่าน membership screening การล็อกอินจะยังสำเร็จและผู้ใช้กดลิงก์สาธารณะ /discord เพื่อเข้าร่วมเองได้ ระหว่างเชื่อมต่อ เซิร์ฟเวอร์อาจแนบตัวตน Discord นี้กับรายงาน error ใหม่ที่ลดข้อมูลอ่อนไหวแล้ว เพื่อให้ผู้พัฒนาแยกผู้ใช้ support ตัวจริงออกจากชื่อโปรไฟล์ Minecraft ที่เปลี่ยนได้ ผู้ใช้ยกเลิกการเชื่อมต่อใน Settings เพื่อ revoke NamLauncher session และหยุดการผูกในอนาคตได้ ส่วนรายงานที่รับไว้ก่อนแล้วจะเป็นไปตามระยะเวลาเก็บและขั้นตอนปิดรายงานด้านล่าง"
+        },
+        {
+          "title": "9. รายงานข้อผิดพลาดอัตโนมัติ คำยืนยันผู้เล่น และการส่งต่อไป Discord",
+          "body": "เมื่อ NamLauncher ตรวจพบ error ของลันเชอร์หรือ Minecraft ระบบจะส่งรายงานที่ลดข้อมูลอ่อนไหวให้อัตโนมัติโดยไม่รอให้ผู้ใช้กดปุ่ม รายงานอาจมี title, context, message, log ที่ผ่านการลดข้อมูลอ่อนไหว เวลาเกิด version ของ launcher และ Electron, platform, architecture, ชื่อโปรไฟล์ผู้เล่น ประเภทบัญชี และข้อมูล CPU, RAM, GPU, รุ่นอุปกรณ์จัดเก็บ และระบบปฏิบัติการแบบจำกัด ปุ่มเดิมจะบันทึกคำยืนยันแยกว่าผู้เล่นพบเหตุการณ์นี้จริง ส่วนการคัดลอกยังเป็นการทำงานในเครื่อง การลบข้อมูลอ่อนไหวเป็น best effort จึงควรตรวจ log ก่อนนำไปแชร์ที่อื่น รายงานอาจถูกส่งต่อไปช่อง Discord หรือ DM ของผู้พัฒนาที่จำกัดการเข้าถึง เมื่อทำเครื่องหมายว่าแก้แล้ว ระบบจะลบเนื้อหาละเอียดอ่อนจากฐานข้อมูลและไฟล์รายงานของ NamLauncher และพยายามแทนที่สำเนา Discord ด้วยข้อความข้อมูลขั้นต่ำ โดยอาจเหลือสถานะ จำนวนคำยืนยัน และลิงก์ข้อความขั้นต่ำ อย่างไรก็ตาม backup ของผู้ให้บริการหรือสำเนา Discord อาจอยู่ต่อหากการซิงก์ล้มเหลวหรือตามระบบเก็บข้อมูลของ Discord"
+        },
+        {
+          "title": "10. ความปลอดภัย ระยะเวลาเก็บ และการเปิดเผยข้อมูล",
+          "body": "NamLauncher ใช้ access control การจำกัดขนาด input การ hash และความปลอดภัยในการรับส่งเมื่อมี แต่ไม่มีระบบใดรับประกันความปลอดภัยได้ทั้งหมด ข้อมูลอาจถูกเปิดเผยเท่าที่จำเป็นอย่างสมเหตุผลเพื่อให้บริการ ป้องกันระบบ ตรวจสอบการใช้งานผิด ปฏิบัติตามกระบวนการทางกฎหมายที่ถูกต้อง หรือปกป้องผู้ใช้และสิทธิ์ ระยะเวลาข้างต้นเป็นค่าเริ่มต้น โดย backup สำเนาของผู้ให้บริการ หน้าที่ตามกฎหมาย เหตุการณ์ความปลอดภัยที่ยังดำเนินอยู่ และเคส support ที่ยังไม่จบอาจทำให้เก็บนานหรือสั้นกว่า"
+        },
+        {
+          "title": "11. ตัวเลือก การลบ การแก้ไข และการติดต่อ",
+          "body": "Heartbeat จำนวนออนไลน์ สถิติ session การเล่น การตรวจนโยบายมอดของอินสแตนซ์ที่เปิด และรายงาน error ที่ลดข้อมูลอ่อนไหวอัตโนมัติเป็นฟังก์ชันบริการที่จำเป็นและปิดไม่ได้ระหว่างใช้ฟังก์ชันที่เกี่ยวข้อง คุณยังปิด Discord IPC และไอคอนข้ามผู้เล่นแยกกันได้ ออกจาก NamLauncher โดยสมบูรณ์หรือถอนการติดตั้งเพื่อหยุดการประมวลผลในอนาคต ลบบัญชี ลบ instance ล้าง cache กับ log หรือลบโฟลเดอร์ข้อมูลได้ การถอนการติดตั้งอย่างเดียวอาจเก็บโฟลเดอร์ไว้เพื่อไม่ให้ world สูญหาย หากต้องการขอเข้าถึง แก้ไข หรือลบรายงานหรือข้อมูลส่วนบุคคลอื่นบนเซิร์ฟเวอร์ ให้ติดต่อผู้พัฒนาผ่าน nattapat2871.me พร้อมข้อมูลที่ไม่ใช่ความลับและเพียงพอต่อการค้นหา คำขอขึ้นกับการยืนยันตัวตน ความปลอดภัย หน้าที่ตามกฎหมาย backup และข้อมูลที่บุคคลที่สามควบคุม"
+        }
+      ]
+    }
+  },
+  "references": [
+    {
+      "label": "Minecraft EULA",
+      "url": "https://www.minecraft.net/eula"
+    },
+    {
+      "label": "Minecraft Usage Guidelines",
+      "url": "https://www.minecraft.net/usage-guidelines"
+    },
+    {
+      "label": "Microsoft Services Agreement",
+      "url": "https://www.microsoft.com/servicesagreement"
+    },
+    {
+      "label": "Discord Terms",
+      "url": "https://discord.com/terms"
+    },
+    {
+      "label": "Modrinth Terms",
+      "url": "https://modrinth.com/legal/terms"
+    },
+    {
+      "label": "CurseForge Terms",
+      "url": "https://www.curseforge.com/terms"
+    }
+  ]
+}

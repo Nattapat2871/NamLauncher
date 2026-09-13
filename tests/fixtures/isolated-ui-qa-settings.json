@@ -1,0 +1,12 @@
+{
+  "_author": "nattapat2871 (https://nattapat2871.me)",
+  "discordRpcEnabled": false,
+  "anonymousStatsEnabled": false,
+  "customJavaArgsEnabled": false,
+  "customJavaArgs": "",
+  "autoMinimizeOnLaunch": false,
+  "closeToTrayEnabled": false,
+  "automaticMemory": false,
+  "performanceProfile": "automatic",
+  "language": "th"
+}

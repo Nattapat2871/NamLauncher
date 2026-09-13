@@ -1,0 +1,444 @@
+diff --git a/node_modules/minecraft-launcher-core/components/authenticator.js b/node_modules/minecraft-launcher-core/components/authenticator.js
+index d3e7b52..bb1b8df 100644
+--- a/node_modules/minecraft-launcher-core/components/authenticator.js
++++ b/node_modules/minecraft-launcher-core/components/authenticator.js
+@@ -1,4 +1,5 @@
+-const request = require('request')
++const http = require('http')
++const https = require('https')
+ const { v3 } = require('uuid')
+ 
+ let uuid
+@@ -33,7 +34,7 @@ module.exports.getAuth = function (username, password, client_token = null) {
+       }
+     }
+ 
+-    request.post(requestObject, function (error, response, body) {
++    postJson(requestObject.url, requestObject.json, function (error, response, body) {
+       if (error) return reject(error)
+       if (!body || !body.selectedProfile) {
+         return reject(new Error('Validation error: ' + response.statusMessage))
+@@ -63,7 +64,7 @@ module.exports.validate = function (accessToken, clientToken) {
+       }
+     }
+ 
+-    request.post(requestObject, async function (error, response, body) {
++    postJson(requestObject.url, requestObject.json, async function (error, response, body) {
+       if (error) return reject(error)
+ 
+       if (!body) resolve(true)
+@@ -83,7 +84,7 @@ module.exports.refreshAuth = function (accessToken, clientToken) {
+       }
+     }
+ 
+-    request.post(requestObject, function (error, response, body) {
++    postJson(requestObject.url, requestObject.json, function (error, response, body) {
+       if (error) return reject(error)
+       if (!body || !body.selectedProfile) {
+         return reject(new Error('Validation error: ' + response.statusMessage))
+@@ -112,7 +113,7 @@ module.exports.invalidate = function (accessToken, clientToken) {
+       }
+     }
+ 
+-    request.post(requestObject, function (error, response, body) {
++    postJson(requestObject.url, requestObject.json, function (error, response, body) {
+       if (error) return reject(error)
+ 
+       if (!body) return resolve(true)
+@@ -131,7 +132,7 @@ module.exports.signOut = function (username, password) {
+       }
+     }
+ 
+-    request.post(requestObject, function (error, response, body) {
++    postJson(requestObject.url, requestObject.json, function (error, response, body) {
+       if (error) return reject(error)
+ 
+       if (!body) return resolve(true)
+@@ -144,6 +145,43 @@ module.exports.changeApiUrl = function (url) {
+   api_url = url
+ }
+ 
++function postJson (url, payload, callback) {
++  const parsed = new URL(url)
++  const body = JSON.stringify(payload)
++  const transport = parsed.protocol === 'http:' ? http : https
++  const request = transport.request({
++    protocol: parsed.protocol,
++    hostname: parsed.hostname,
++    port: parsed.port || undefined,
++    path: `${parsed.pathname}${parsed.search}`,
++    method: 'POST',
++    timeout: 50000,
++    headers: {
++      'Content-Type': 'application/json',
++      'Content-Length': Buffer.byteLength(body),
++      'User-Agent': 'minecraft-launcher-core'
++    }
++  }, response => {
++    const chunks = []
++    response.on('data', chunk => chunks.push(chunk))
++    response.on('end', () => {
++      const raw = Buffer.concat(chunks).toString('utf8')
++      let parsedBody = raw
++      try {
++        parsedBody = raw ? JSON.parse(raw) : undefined
++      } catch {
++        parsedBody = raw
++      }
++      callback(null, response, parsedBody)
++    })
++  })
++
++  request.on('timeout', () => request.destroy(new Error('Request timed out')))
++  request.on('error', error => callback(error))
++  request.write(body)
++  request.end()
++}
++
+ function parsePropts (array) {
+   if (array) {
+     const newObj = {}
+diff --git a/node_modules/minecraft-launcher-core/components/handler.js b/node_modules/minecraft-launcher-core/components/handler.js
+index 111a797..6d3506c 100644
+--- a/node_modules/minecraft-launcher-core/components/handler.js
++++ b/node_modules/minecraft-launcher-core/components/handler.js
+@@ -1,6 +1,7 @@
+ const fs = require('fs')
+ const path = require('path')
+-const request = require('request')
++const http = require('http')
++const https = require('https')
+ const checksum = require('checksum')
+ const Zip = require('adm-zip')
+ const child = require('child_process')
+@@ -10,9 +11,62 @@ class Handler {
+   constructor (client) {
+     this.client = client
+     this.options = client.options
+-    this.baseRequest = request.defaults({
+-      pool: { maxSockets: this.options.overrides.maxSockets || 2 },
+-      timeout: this.options.timeout || 50000
++    this.requestTimeout = this.options.timeout || 50000
++  }
++
++  requestOptions (url) {
++    const parsed = new URL(url)
++    return {
++      protocol: parsed.protocol,
++      hostname: parsed.hostname,
++      port: parsed.port || undefined,
++      path: `${parsed.pathname}${parsed.search}`,
++      timeout: this.requestTimeout,
++      headers: {
++        'User-Agent': 'minecraft-launcher-core'
++      }
++    }
++  }
++
++  getTransport (url) {
++    return new URL(url).protocol === 'http:' ? http : https
++  }
++
++  getText (url, redirectCount = 0) {
++    return new Promise((resolve, reject) => {
++      const request = this.getTransport(url).get(this.requestOptions(url), response => {
++        const statusCode = response.statusCode || 0
++        const location = response.headers.location
++        if (statusCode >= 300 && statusCode < 400 && location && redirectCount < 5) {
++          response.resume()
++          return resolve(this.getText(new URL(location, url).href, redirectCount + 1))
++        }
++
++        const chunks = []
++        response.on('data', chunk => chunks.push(chunk))
++        response.on('end', () => resolve({
++          statusCode,
++          headers: response.headers,
++          body: Buffer.concat(chunks).toString('utf8')
++        }))
++      })
++      request.on('timeout', () => request.destroy(Object.assign(new Error('Request timed out'), { code: 'ETIMEDOUT' })))
++      request.on('error', reject)
++    })
++  }
++
++  getStatus (url) {
++    return new Promise(resolve => {
++      const request = this.getTransport(url).request({
++        ...this.requestOptions(url),
++        method: 'HEAD'
++      }, response => {
++        response.resume()
++        resolve(response.statusCode || 0)
++      })
++      request.on('timeout', () => request.destroy())
++      request.on('error', () => resolve(0))
++      request.end()
+     })
+   }
+ 
+@@ -38,39 +92,49 @@ class Handler {
+     return new Promise(resolve => {
+       fs.mkdirSync(directory, { recursive: true })
+ 
+-      const _request = this.baseRequest(url)
+-
+       let receivedBytes = 0
+       let totalBytes = 0
+ 
+-      _request.on('response', (data) => {
+-        if (data.statusCode === 404) {
+-          this.client.emit('debug', `[MCLC]: Failed to download ${url} due to: File not found...`)
+-          return resolve(false)
+-        }
+-
+-        totalBytes = parseInt(data.headers['content-length'])
+-      })
+-
+-      _request.on('error', async (error) => {
++      const file = fs.createWriteStream(path.join(directory, name))
++      const finishRetry = async (error) => {
+         this.client.emit('debug', `[MCLC]: Failed to download asset to ${path.join(directory, name)} due to\n${error}.` +
+                     ` Retrying... ${retry}`)
++        if (fs.existsSync(path.join(directory, name))) fs.unlinkSync(path.join(directory, name))
+         if (retry) await this.downloadAsync(url, directory, name, false, type)
+         resolve()
+-      })
++      }
++
++      const startDownload = (downloadUrl, redirectCount = 0) => {
++        const _request = this.getTransport(downloadUrl).get(this.requestOptions(downloadUrl), (data) => {
++          if (data.statusCode >= 300 && data.statusCode < 400 && data.headers.location && redirectCount < 5) {
++            data.resume()
++            return startDownload(new URL(data.headers.location, downloadUrl).href, redirectCount + 1)
++          }
++
++          if (data.statusCode === 404) {
++            this.client.emit('debug', `[MCLC]: Failed to download ${downloadUrl} due to: File not found...`)
++            file.destroy()
++            return resolve(false)
++          }
+ 
+-      _request.on('data', (data) => {
+-        receivedBytes += data.length
+-        this.client.emit('download-status', {
+-          name: name,
+-          type: type,
+-          current: receivedBytes,
+-          total: totalBytes
++          totalBytes = parseInt(data.headers['content-length']) || 0
++          data.on('data', (chunk) => {
++            receivedBytes += chunk.length
++            this.client.emit('download-status', {
++              name: name,
++              type: type,
++              current: receivedBytes,
++              total: totalBytes
++            })
++          })
++          data.pipe(file)
+         })
+-      })
+ 
+-      const file = fs.createWriteStream(path.join(directory, name))
+-      _request.pipe(file)
++        _request.on('timeout', () => _request.destroy(new Error('Request timed out')))
++        _request.on('error', finishRetry)
++      }
++
++      startDownload(url)
+ 
+       file.once('finish', () => {
+         this.client.emit('download', name)
+@@ -81,11 +145,7 @@ class Handler {
+       })
+ 
+       file.on('error', async (e) => {
+-        this.client.emit('debug', `[MCLC]: Failed to download asset to ${path.join(directory, name)} due to\n${e}.` +
+-                    ` Retrying... ${retry}`)
+-        if (fs.existsSync(path.join(directory, name))) fs.unlinkSync(path.join(directory, name))
+-        if (retry) await this.downloadAsync(url, directory, name, false, type)
+-        resolve()
++        await finishRetry(e)
+       })
+     })
+   }
+@@ -102,8 +162,22 @@ class Handler {
+     })
+   }
+ 
++  async mapLimit (items, limit, iterator) {
++    let nextIndex = 0
++    const workerCount = Math.min(Math.max(1, limit), items.length)
++    const workers = Array.from({ length: workerCount }, async () => {
++      while (nextIndex < items.length) {
++        const index = nextIndex++
++        await iterator(items[index], index)
++        if (index % 16 === 0) await new Promise(resolve => setImmediate(resolve))
++      }
++    })
++
++    await Promise.all(workers)
++  }
++
+   getVersion () {
+-    return new Promise(resolve => {
++    return new Promise(async resolve => {
+       const versionJsonPath = this.options.overrides.versionJson || path.join(this.options.directory, `${this.options.version.number}.json`)
+       if (fs.existsSync(versionJsonPath)) {
+         this.version = JSON.parse(fs.readFileSync(versionJsonPath))
+@@ -112,42 +186,38 @@ class Handler {
+ 
+       const manifest = `${this.options.overrides.url.meta}/mc/game/version_manifest.json`
+       const cache = this.options.cache ? `${this.options.cache}/json` : `${this.options.root}/cache/json`
+-      request.get(manifest, (error, response, body) => {
+-        if (error && error.code !== 'ENOTFOUND') return resolve(error)
+-        if (!error) {
+-          if (!fs.existsSync(cache)) {
+-            fs.mkdirSync(cache, { recursive: true })
+-            this.client.emit('debug', '[MCLC]: Cache directory created.')
+-          }
+-          fs.writeFile(path.join(`${cache}/version_manifest.json`), body, (err) => {
+-            if (err) return resolve(err)
+-            this.client.emit('debug', '[MCLC]: Cached version_manifest.json')
+-          })
++
++      try {
++        const { body: manifestBody } = await this.getText(manifest)
++        if (!fs.existsSync(cache)) {
++          fs.mkdirSync(cache, { recursive: true })
++          this.client.emit('debug', '[MCLC]: Cache directory created.')
+         }
+-        const parsed = (error && error.code === 'ENOTFOUND')
+-          ? JSON.parse(fs.readFileSync(`${cache}/version_manifest.json`))
+-          : JSON.parse(body)
+-        const desiredVersion = Object.values(parsed.versions).find(version => version.id === this.options.version.number)
+-        if (desiredVersion) {
+-          request.get(desiredVersion.url, (error, response, body) => {
+-            if (error && error.code !== 'ENOTFOUND') throw Error(error)
+-            if (!error) {
+-              fs.writeFile(path.join(`${cache}/${this.options.version.number}.json`), body, (err) => {
+-                if (err) throw Error(err)
+-                this.client.emit('debug', `[MCLC]: Cached ${this.options.version.number}.json`)
+-              })
+-            }
++        fs.writeFileSync(path.join(`${cache}/version_manifest.json`), manifestBody)
++        this.client.emit('debug', '[MCLC]: Cached version_manifest.json')
+ 
+-            this.client.emit('debug', '[MCLC]: Parsed version from version manifest')
+-            this.version = error && error.code === 'ENOTFOUND'
+-              ? JSON.parse(fs.readFileSync(`${cache}/${this.options.version.number}.json`))
+-              : JSON.parse(body)
+-            return resolve(this.version)
+-          })
+-        } else {
++        const parsed = JSON.parse(manifestBody)
++        const desiredVersion = Object.values(parsed.versions).find(version => version.id === this.options.version.number)
++        if (!desiredVersion) {
+           throw Error(`Failed to find version ${this.options.version.number} in version_manifest.json`)
+         }
+-      })
++
++        const { body: versionBody } = await this.getText(desiredVersion.url)
++        fs.writeFileSync(path.join(`${cache}/${this.options.version.number}.json`), versionBody)
++        this.client.emit('debug', `[MCLC]: Cached ${this.options.version.number}.json`)
++
++        this.client.emit('debug', '[MCLC]: Parsed version from version manifest')
++        this.version = JSON.parse(versionBody)
++        return resolve(this.version)
++      } catch (error) {
++        if (error && error.code !== 'ENOTFOUND') return resolve(error)
++        this.client.emit('debug', '[MCLC]: Using cached version json because Mojang metadata is unavailable')
++        const parsed = JSON.parse(fs.readFileSync(`${cache}/version_manifest.json`))
++        const desiredVersion = Object.values(parsed.versions).find(version => version.id === this.options.version.number)
++        if (!desiredVersion) throw Error(`Failed to find version ${this.options.version.number} in version_manifest.json`)
++        this.version = JSON.parse(fs.readFileSync(`${cache}/${this.options.version.number}.json`))
++        return resolve(this.version)
++      }
+     })
+   }
+ 
+@@ -166,13 +236,14 @@ class Handler {
+ 
+     const index = JSON.parse(fs.readFileSync(path.join(assetDirectory, 'indexes', `${assetId}.json`), { encoding: 'utf8' }))
+ 
++    const assetNames = Object.keys(index.objects)
+     this.client.emit('progress', {
+       type: 'assets',
+       task: 0,
+-      total: Object.keys(index.objects).length
++      total: assetNames.length
+     })
+ 
+-    await Promise.all(Object.keys(index.objects).map(async asset => {
++    await this.mapLimit(assetNames, 16, async asset => {
+       const hash = index.objects[asset].hash
+       const subhash = hash.substring(0, 2)
+       const subAsset = path.join(assetDirectory, 'objects', subhash)
+@@ -184,9 +255,9 @@ class Handler {
+       this.client.emit('progress', {
+         type: 'assets',
+         task: counter,
+-        total: Object.keys(index.objects).length
++        total: assetNames.length
+       })
+-    }))
++    })
+     counter = 0
+ 
+     // Copy assets to legacy if it's an older Minecraft version.
+@@ -206,7 +277,7 @@ class Handler {
+         total: Object.keys(index.objects).length
+       })
+ 
+-      await Promise.all(Object.keys(index.objects).map(async asset => {
++      await this.mapLimit(assetNames, 16, async asset => {
+         const hash = index.objects[asset].hash
+         const subhash = hash.substring(0, 2)
+         const subAsset = path.join(assetDirectory, 'objects', subhash)
+@@ -225,9 +296,9 @@ class Handler {
+         this.client.emit('progress', {
+           type: 'assets-copy',
+           task: counter,
+-          total: Object.keys(index.objects).length
++          total: assetNames.length
+         })
+-      }))
++      })
+     }
+     counter = 0
+ 
+@@ -431,12 +502,9 @@ class Handler {
+         const downloadLink = `${url}${lib[0].replace(/\./g, '/')}/${lib[1]}/${lib[2]}/${name}`
+         // Checking if the file still exists on Forge's server, if not, replace it with the fallback.
+         // Not checking for sucess, only if it 404s.
+-        this.baseRequest(downloadLink, (error, response, body) => {
+-          if (error) {
+-            this.client.emit('debug', `[MCLC]: Failed checking request for ${downloadLink}`)
+-          } else {
+-            if (response.statusCode === 404) library.url = this.options.overrides.url.fallbackMaven
+-          }
++        this.getStatus(downloadLink).then(statusCode => {
++          if (statusCode === 0) this.client.emit('debug', `[MCLC]: Failed checking request for ${downloadLink}`)
++          if (statusCode === 404) library.url = this.options.overrides.url.fallbackMaven
+         })
+       }))
+     }
+@@ -474,7 +542,7 @@ class Handler {
+   async downloadToDirectory (directory, libraries, eventName) {
+     const libs = []
+ 
+-    await Promise.all(libraries.map(async library => {
++    await this.mapLimit(libraries, this.options.overrides.maxSockets || 16, async library => {
+       if (!library) return
+       if (this.parseRule(library)) return
+       const lib = library.name.split(':')
+@@ -511,7 +579,7 @@ class Handler {
+         total: libraries.length
+       })
+       libs.push(`${jarPath}${path.sep}${name}`)
+-    }))
++    })
+     counter = 0
+ 
+     return libs
